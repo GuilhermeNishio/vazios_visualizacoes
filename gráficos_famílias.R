@@ -2,10 +2,7 @@
 setwd("Z:/Guilherme/R/Vazios")
 
 # Carregando os pacotes
-
-
 library(readr)
-
 library(dplyr)
 library(readxl)
 library(ggplot2)
@@ -35,11 +32,6 @@ df$Taxa.de.oferta.de.emprego.formal.a.cada.100.pessoas.da.População.em.Idade.A
 # Arredondando valores percentuais para centésimos
 df <- adorn_rounding(df, digits = 2)
 
-
-
-
-
-
 # Inserindo coluna com zonas dos distritos
 df <- df %>% 
   mutate(zonas = case_when(DISTRITOS %in% c('Cachoeirinha', 'Casa Verde', 'Limão', 'Brasilândia','Freguesia do Ó','Jaçanã','Tremembé','Anhanguera','Perus','Jaraguá','Pirituba',
@@ -56,9 +48,7 @@ df <- df %>%
                            DISTRITOS %in% c("Bela Vista","Bom Retiro","Cambuci","Consolação", "Liberdade","República","Santa Cecília","Sé") ~ "Centro",
                            TRUE ~ 'Cidade')) 
 
-
-glimpse(df)
-
+# Definindo uma paleta de cores para os gráficos
 paleta = c("#1B2CC1", "#d02d5c", "#533745", "#92c9b1", "#e9c46a", "purple")
 
 # Gráfico de barras % CadÚnico
